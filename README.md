@@ -3,7 +3,7 @@
 ## My Goal
 Hi, I am Emre Tantu. My goal is to become a full-stack web developer and I am aware that I need to practice a lot in order to achieve this. These practices can range from small tasks like creating a navbar to larger tasks like building a landing page. I aim to share all these small and large practices on this repository, so that I can improve my front-end skills as well as my knowledge of Git and GitHub.
 
-## Structre of the Reporsitory
+## Structure of the Repository
 As for the branch structure of this repository, I wanted to gain experience with Git and GitHub, so even though multiple branches may not be necessary, I will be using the following branch system: a main branch and a practice1-* branch. Each practice will be on a different branch and then merged with the main branch. I know it's not very complex, but this system will keep me sharp with the basics of Git and GitHub.
 
 ## What's Your Benefits
