@@ -1,3 +1,22 @@
+/*Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,700&family=Montserrat:ital,wght@0,500;0,700;1,500;1,700&display=swap');
+
+/*Custom Properties*/
+:root {
+  --clr-primary-400: hsl(158, 36%, 37%);
+  --clr-secondary-200: hsl(30, 38%, 92%);
+
+  --clr-neutral-900: hsl(212, 21%, 14%);
+  --clr-neutral-400: hsl(228, 12%, 48%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+
+  --ff-accent: 'Fraunces', serif;
+  --ff-base: 'Montserrat', sans-serif;
+
+  --fw-regular: 500;
+  --fw-bold: 700;
+}
+
 /*CSS Reset*/
 *, *::before, *::after {
   box-sizing: border-box;
@@ -30,3 +49,25 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 /*CSS Reset END*/
 
+/*Utilities*/
+
+.flex-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/*General Styling*/
+
+body {
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+  font-size: 0.875rem; /*14px*/
+  color: var(--clr-neutral-400);
+  background-color: var(--clr-secondary-200);
+
+  /*For this project only*/
+  display: grid;
+  place-content: center;
+  margin: 1rem;
+}
