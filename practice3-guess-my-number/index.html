@@ -14,21 +14,22 @@
 
     <section class="game grid-container">
 
-      <h1 class="game__title">Guess My Number</h1>
+      <h1 class="game__title color-accent1">Guess My Number</h1>
 
-      <p class="game__number">?</p>
+      <div class="game__number">?</div>
 
-      <div class="game__controls">
-        <input type="number" name="guessed-number" id="#game__guessed-number">
+      <div class="game__controls grid-container">
+        <input type="number" name="guessed-number" class="game__guessed-number">
         <button class="game__button game__button--guess">Guess</button>
         <button class="game__button game__button--reset">Reset</button>
       </div>
 
+      <p class="game__msg">What's your first guess?</p>
+
       <div class="game__board grid-container">
-        <p class="game__msg">What's your first guess?</p>
-        <p>Your Score</p>
+        <h2>Your Score</h2>
         <p class="game__score">10</p>
-        <p>Best Score</p>
+        <h2>Best Score</h2>
         <p class="game__best-score">0</p>
       </div>
 

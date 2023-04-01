@@ -1,22 +1,29 @@
 /*Fonts*/
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300;400;500;600;700;800;900&display=swap');
 
 /*Custom Properties*/
 :root {
   --clr-neutral-800: hsl(0, 0%, 10%);
   --clr-neutral-400: hsl(0, 0%, 20%);
+  --clr-neutral-300: hsl(0, 0%, 60%);
+  --clr-neutral-200: hsl(0, 0%, 75%);
   --clr-neutral-100: hsl(0, 0%, 100%);
 
-  --clr-accent1-400: hsl(263, 45%, 56%);
+  --clr-accent1-400: hsl(263, 56%, 54%);
   --clr-accent2-400: hsl(171, 100%, 28%);
+  --clr-accent2-500: hsl(171, 100%, 24%);
   --clr-background1-200: hsl(0, 0%, 98%);
   --clr-true: hsl(0, 79%, 54%);
   --clr-false: hsl(120, 85%, 39%);
 
-  --ff-base: 'Comfortaa', cursive;
+  --ff-base: 'Merienda', cursive;
 
-  --fw-regular: 500;
+  --fw-regular: 400;
   --fw-bold: 700;
+  --fw-xbold: 800;
+
+  --br-radius-200: 0.6rem;
+  --br-radius-400: 1rem;
 }
 
 /*CSS Reset*/
@@ -49,6 +56,10 @@ input, button, textarea, select {
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
+
+h1, h2, h3 {
+  line-height: 1.25;
+}
 /*CSS Reset END*/
 
 /*Utilities*/
@@ -58,7 +69,6 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .grid-container {
   display: grid;
-  gap: 0.5rem;
 }
 
 /*General Styling*/
@@ -71,4 +81,157 @@ body {
   align-items: center;
   background-color: var(--clr-background1-200);
   font-family: var(--ff-base);
+}
+
+h1, h2, h3 {
+  color: var(--clr-accent1-400);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: var(--fw-xbold);
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: var(--fw-bold);
+}
+
+/*Game*/
+.game {
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: 
+    "title title"
+    "number number"
+    "controls controls"
+    "message message"
+    "board board"
+    "footer footer";
+  padding: 1.8rem;
+  border-radius: var(--br-radius-400);
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-neutral-800);
+}
+
+.game * {
+  text-align: center;
+}
+
+.game__title {
+  grid-area: title;
+}
+
+.game__number {
+  grid-area: number;
+  justify-self: center;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  width: 10rem;
+  padding: 0.2em;
+  border: 0.12em solid var(--clr-accent1-400);
+  border-radius: var(--br-radius-200);
+
+  font-size: 2rem;
+  font-weight: var(--fw-bold);
+  color: var(--clr-accent1-400);
+}
+
+.game__number::after {
+  content: "1-20";
+  position: absolute;
+  right: 0.2rem;
+  bottom: -0.5rem;
+  z-index: 1;
+  padding: 0.2em 0.6em;
+  border-radius: var(--br-radius-200);
+  font-size: 0.7rem;
+  background-color: var(--clr-accent2-400);
+  color: var(--clr-neutral-100);
+}
+
+.game__controls {
+  grid-area: controls;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: 
+    "guessed-number guessed-number"
+    "button-guess button-reset";
+  gap: 0.4rem;
+}
+
+.game__controls > * {
+  border-radius: var(--br-radius-200);
+}
+
+.game__guessed-number {
+  border: 0.15rem solid var(--clr-neutral-200);
+  grid-area: guessed-number;
+}
+
+.game__guessed-number:focus {
+  outline-color: var(--clr-accent2-400);
+}
+
+.game__button {
+  flex: 1;
+  padding: 0.3em 0.8em;
+  border: none;
+  cursor: pointer;
+}
+
+.game__button--guess {
+  background-color: var(--clr-accent2-400);
+  color: var(--clr-neutral-100);
+}
+
+.game__button--guess:is(:hover, :focus) {
+  background-color: var(--clr-accent2-500);
+}
+
+.game__button--reset {
+  background-color: var(--clr-neutral-400);
+  color: var(--clr-neutral-100);
+}
+
+.game__button--reset:is(:hover, :focus) {
+  background-color: var(--clr-neutral-800);
+}
+
+.game__msg {
+  grid-area: message;
+}
+
+.game__board {
+  grid-area: board;
+  gap: 0.3rem;
+}
+
+.game__footer {
+  grid-area: footer;
+}
+
+.game__footer {
+  font-size: 0.6rem;
+  color: var(--clr-neutral-300);
+}
+
+.game a {
+  color: inherit;
+}
+
+@media (min-width: 769px) {
+  .game {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+    "title title"
+    "number number"
+    "controls board"
+    "message board"
+    "footer footer";
+  }
 }
