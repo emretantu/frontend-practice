@@ -1,0 +1,74 @@
+/*Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+/*Custom Properties*/
+:root {
+  --clr-neutral-800: hsl(0, 0%, 10%);
+  --clr-neutral-400: hsl(0, 0%, 20%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+
+  --clr-accent1-400: hsl(263, 45%, 56%);
+  --clr-accent2-400: hsl(171, 100%, 28%);
+  --clr-background1-200: hsl(0, 0%, 98%);
+  --clr-true: hsl(0, 79%, 54%);
+  --clr-false: hsl(120, 85%, 39%);
+
+  --ff-base: 'Comfortaa', cursive;
+
+  --fw-regular: 500;
+  --fw-bold: 700;
+}
+
+/*CSS Reset*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*CSS Reset END*/
+
+/*Utilities*/
+.flex-container {
+  display: flex;
+}
+
+.grid-container {
+  display: grid;
+  gap: 0.5rem;
+}
+
+/*General Styling*/
+html {
+  font-size: 20px;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-background1-200);
+  font-family: var(--ff-base);
+}

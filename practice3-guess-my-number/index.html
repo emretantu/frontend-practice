@@ -8,11 +8,11 @@
   <link rel="stylesheet" href="style.css">
   <script src="game.js"></script>
 </head>
-<body>
+<body class="flex-container">
 
   <main>
 
-    <section class="game">
+    <section class="game grid-container">
 
       <h1 class="game__title">Guess My Number</h1>
 
@@ -24,13 +24,17 @@
         <button class="game__button game__button--reset">Reset</button>
       </div>
 
-      <div class="game__board">
+      <div class="game__board grid-container">
         <p class="game__msg">What's your first guess?</p>
         <p>Your Score</p>
         <p class="game__score">10</p>
         <p>Best Score</p>
         <p class="game__best-score">0</p>
       </div>
+
+      <footer class="game__footer">
+        <p class="game__creator">Created by <a href="https://github.com/emretantu">Emre Tantu</a></p>
+      </footer>
 
     </section>
 
