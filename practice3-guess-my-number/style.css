@@ -154,6 +154,7 @@ h2 {
   font-size: 0.7rem;
   background-color: var(--clr-accent2-400);
   color: var(--clr-neutral-100);
+  box-shadow: 0 0.1em 0.2em var(--clr-neutral-200);
 }
 
 .game__controls {
