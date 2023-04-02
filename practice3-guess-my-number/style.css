@@ -124,6 +124,7 @@ h2 {
 }
 
 .game__number {
+  --range: "1 - 20";
   grid-area: number;
   justify-self: center;
 
@@ -144,7 +145,7 @@ h2 {
 }
 
 .game__number::after {
-  content: "1-20";
+  content: var(--range);
   position: absolute;
   right: 0.2rem;
   bottom: -0.5rem;
@@ -183,12 +184,12 @@ h2 {
   flex: 1;
   padding: 0.3em 0.8em;
   border: none;
+  color: var(--clr-neutral-100);
   cursor: pointer;
 }
 
 .game__button--guess {
   background-color: var(--clr-accent2-400);
-  color: var(--clr-neutral-100);
 }
 
 .game__button--guess:is(:hover, :focus-visible) {
@@ -197,11 +198,15 @@ h2 {
 
 .game__button--reset {
   background-color: var(--clr-neutral-400);
-  color: var(--clr-neutral-100);
 }
 
 .game__button--reset:is(:hover, :focus-visible) {
   background-color: var(--clr-neutral-800);
+}
+
+.game__button--inactive {
+  background-color: var(--clr-neutral-300);
+  pointer-events: none;
 }
 
 .game__msg {
