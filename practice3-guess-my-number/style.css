@@ -190,7 +190,7 @@ h2 {
   color: var(--clr-neutral-100);
 }
 
-.game__button--guess:is(:hover, :focus) {
+.game__button--guess:is(:hover, :focus-visible) {
   background-color: var(--clr-accent2-500);
 }
 
@@ -199,7 +199,7 @@ h2 {
   color: var(--clr-neutral-100);
 }
 
-.game__button--reset:is(:hover, :focus) {
+.game__button--reset:is(:hover, :focus-visible) {
   background-color: var(--clr-neutral-800);
 }
 
