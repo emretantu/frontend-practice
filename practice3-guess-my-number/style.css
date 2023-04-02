@@ -100,14 +100,14 @@ h2 {
 /*Game*/
 .game {
   gap: 1rem;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   grid-template-areas: 
-    "title title"
-    "number number"
-    "controls controls"
-    "message message"
-    "board board"
-    "footer footer";
+    "title"
+    "number"
+    "controls"
+    "message"
+    "board"
+    "footer";
   padding: 1.8rem;
   border-radius: var(--br-radius-400);
   background-color: var(--clr-neutral-100);
