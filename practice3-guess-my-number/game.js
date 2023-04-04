@@ -23,10 +23,15 @@ let numb;
 let score;
 let bestScore = 0;
 
-console.log(gameUI);
-
 gameUI.btnGuess.addEventListener("click", guess);
 gameUI.btnReset.addEventListener("click", reset);
+window.addEventListener("keypress", (e) => {
+  if (e.code === "KeyG" || e.code === "Enter") {
+    guess();
+  } else if (e.code === "KeyR") {
+    reset();
+  }
+})
 
 function getRandom() {
   return Math.floor(Math.random() * (gameRule.upperLimit - gameRule.lowerLimit + 1) + gameRule.lowerLimit);
@@ -89,9 +94,7 @@ function guess() {
     setMsg("❌ No number!");
     return;
   }
-
   input = Number(input);
-
   if (input === numb) {
     win();
   } else {
@@ -105,6 +108,7 @@ function guess() {
       defeat();
     }
   }
+  gameUI.guessedNumber.focus();
 }
 
 function reset() {
@@ -116,6 +120,7 @@ function reset() {
   activateGame();
   numb = getRandom();
   score = gameRule.scoreBase;
+  gameUI.guessedNumber.focus(); /*guessedNumber must be focused on each reset. That's why input.game__guessed-number don't have autofocus.*/
 }
 
 reset();
