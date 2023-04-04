@@ -130,3 +130,54 @@ function reset() {
 }
 
 reset();
+
+/*Modal*/
+
+document.addEventListener("keydown", (e) => {
+  if (e.code === "Escape") {
+    let modal = document.querySelector(".modal--show");
+    modal.classList.remove("modal--show");
+    hideModalBg();
+  }
+});
+
+const modalBackground = document.createElement("div");
+modalBackground.classList.add("modal-background");
+document.body.append(modalBackground);
+modalBackground.style.display = "none";
+
+const modals = document.querySelectorAll("section.modal");
+for (let i = 0; i < modals.length; i++) {
+  modals[i].setAttribute("data-modalref", `${i}`);
+  const modalCloseIcon = document.createElement("div");
+  modalCloseIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg>';
+  modalCloseIcon.classList.add("modal__close");
+  modalCloseIcon.addEventListener("click", closeModal);
+  modals[i].appendChild(modalCloseIcon);
+}
+
+const modalTriggers = document.querySelectorAll('[data-modaltrg]');
+for(let i = 0; i < modalTriggers.length; i++) {
+  modalTriggers[i].addEventListener("click", showModal);
+  const modalName = modalTriggers[i].getAttribute("data-modaltrg");
+  const modal = document.querySelector(`[data-modal=${modalName}]`);
+    modalTriggers[i].setAttribute("data-modalref", modal.getAttribute("data-modalref"));
+}
+
+function closeModal() {
+  this.parentElement.classList.remove("modal--show");
+  hideModalBg();
+}
+
+function showModal() {
+  modals[Number(this.getAttribute("data-modalref"))].classList.add("modal--show");
+  showModalBg();
+}
+
+function showModalBg() {
+  modalBackground.style.display = "block";
+}
+
+function hideModalBg() {
+  modalBackground.style.display = "none";
+}

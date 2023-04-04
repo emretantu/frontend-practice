@@ -237,8 +237,9 @@ h2 {
   color: var(--clr-neutral-300);
 }
 
-.game a {
-  color: inherit;
+.game__creator span {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 @media (min-width: 769px) {
@@ -251,4 +252,70 @@ h2 {
     "message board"
     "footer footer";
   }
+}
+
+/*Modal*/
+
+section.modal {
+  --clr-modal-border: hsl(0, 0%, 90%);
+  --clr-modal-bgcolor: hsl(0, 0%, 98%);
+  --clr-model-close-color: hsl(0, 0%, 50%);
+  --clr-model-close-color-hover: hsl(0, 0%, 25%);
+  --clr-model-close-bgcolor-hover: hsl(0, 0%, 90%);
+  
+  display: none;
+
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  z-index: 90;
+  transform: translate(-50%, -50%);
+
+  width: 40rem;
+  height: min-content;
+  min-height: 5rem;
+  max-height: 60vh;
+  padding: 1.6rem;
+  border: 0.1rem solid var(--clr-modal-border);
+  border-radius: 1rem;
+
+  background-color: var(--clr-modal-bgcolor);
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0 1em 4em hsla(0, 0%, 0%, 0.2);
+}
+
+section .modal__close {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 1em;
+  right: 0.4em;
+  z-index: 94;
+  width: 1.8em;
+  height: 1.8em;
+  padding: 0.1em;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  fill: var(--clr-model-close-color);
+  cursor: pointer;
+}
+
+section .modal__close:hover {
+  fill: var(--clr-model-close-color-hover);
+  background-color: var(--clr-model-close-bgcolor-hover);
+}
+
+section.modal--show {
+  display: block;
+}
+
+.modal-background {
+  position: fixed;
+  z-index: 80;
+  width: 400%;
+  height: 400%;
+  background-color: hsla(0, 0%, 0%, 0.25);
+  backdrop-filter: blur(4px);
 }
