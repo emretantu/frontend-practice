@@ -21,6 +21,7 @@ const gameUI = {
 
 let numb;
 let score;
+let bestScore = 0;
 
 console.log(gameUI);
 
@@ -46,6 +47,10 @@ function decreaseScore() {
 function win() {
   setMsg("🎉 You found it!");
   gameUI.numb.textContent = String(numb);
+  if (score > bestScore) {
+    bestScore = score;
+    gameUI.bestScore.textContent = bestScore;
+  }
   inactivateGame();
   restartGame();
 }
