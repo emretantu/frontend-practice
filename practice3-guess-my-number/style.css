@@ -13,8 +13,8 @@
   --clr-accent2-400: hsl(171, 100%, 28%);
   --clr-accent2-500: hsl(171, 100%, 24%);
   --clr-background1-200: hsl(0, 0%, 98%);
-  --clr-true: hsl(0, 79%, 54%);
-  --clr-false: hsl(120, 85%, 39%);
+  --clr-true: hsla(120, 85%, 39%, 0.6);
+  --clr-false: hsla(0, 100%, 50%, 0.6);
 
   --ff-base: 'Merienda', cursive;
 
@@ -142,6 +142,16 @@ h2 {
   font-size: 2rem;
   font-weight: var(--fw-bold);
   color: var(--clr-accent1-400);
+
+  transition: background-color 0.2s ease-in-out;
+}
+
+.game__number--true {
+  background-color: var(--clr-true);
+}
+
+.game__number--false {
+  background-color: var(--clr-false);
 }
 
 .game__number::after {

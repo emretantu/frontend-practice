@@ -5,7 +5,7 @@ const gameRule = {
   lowerLimit: 1,
   scoreBase: 10,
   scoreSteps: 1,
-  isAutoRestartActive: false,
+  isAutoRestartActive: true,
   autoRestartTime: 3000
 }
 
@@ -47,6 +47,8 @@ function decreaseScore() {
     score = 0;
   }
   gameUI.gameScore.textContent = String(score);
+  gameUI.numb.classList.add("game__number--false");
+  setTimeout(() => {gameUI.numb.classList.remove("game__number--false")}, 220)
 }
 
 function win() {
@@ -56,6 +58,8 @@ function win() {
     bestScore = score;
     gameUI.bestScore.textContent = bestScore;
   }
+  gameUI.numb.classList.add("game__number--true");
+  setTimeout(() => {gameUI.numb.classList.remove("game__number--true")}, 1000)
   inactivateGame();
   restartGame();
 }
@@ -82,10 +86,12 @@ function restartGame() {
   gameUI.btnReset.classList.remove("game__button--reset");
   setTimeout(() => {
     setMsg("Restart in " + Math.round(gameRule.autoRestartTime / 1000) + " second(s).");
-    gameUI.btnReset.classList.add("game__button--inactive");
-    gameUI.btnReset.classList.remove("game__button--reset");
   }, gameRule.autoRestartTime > 4000 ? 2000 : gameRule.autoRestartTime / 2);
-  setTimeout(reset, gameRule.autoRestartTime)
+  setTimeout(() => {
+    gameUI.btnReset.classList.remove("game__button--inactive");
+    gameUI.btnReset.classList.add("game__button--reset");
+    reset()
+  }, gameRule.autoRestartTime);
 }
 
 function guess() {
