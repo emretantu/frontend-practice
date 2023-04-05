@@ -10,6 +10,7 @@ const gameRule = {
 }
 
 const gameUI = {
+  gameSection: document.querySelector(".game"),
   numb: document.querySelector(".game__number"),
   guessedNumber: document.querySelector(".game__guessed-number"),
   btnGuess: document.querySelector(".game__button--guess"),
@@ -31,7 +32,8 @@ window.addEventListener("keypress", (e) => {
   } else if (e.code === "KeyR") {
     reset();
   }
-})
+});
+gameUI.gameSection.addEventListener("click", () => { gameUI.guessedNumber.focus() })
 
 function getRandom() {
   return Math.floor(Math.random() * (gameRule.upperLimit - gameRule.lowerLimit + 1) + gameRule.lowerLimit);
