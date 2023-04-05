@@ -191,8 +191,10 @@ function showModal() {
 
 function hideModalBg() {
   modalBackground.style.display = "none";
+  document.body.classList.remove("noscroll");
 }
 
 function showModalBg() {
   modalBackground.style.display = "block";
+  document.body.classList.add("noscroll");
 }

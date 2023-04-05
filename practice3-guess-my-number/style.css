@@ -323,3 +323,13 @@ section.modal--show {
   background-color: hsla(0, 0%, 0%, 0.25);
   backdrop-filter: blur(4px);
 }
+
+body.noscroll {
+  overflow: hidden;
+  padding-right: 17px;
+}
+
+/* To see the noscroll effect */
+/* body {
+  height: 200vh;
+} */
