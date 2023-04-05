@@ -117,6 +117,7 @@ h2 {
 
 .game * {
   text-align: center;
+  user-select: none;
 }
 
 .game__title {
