@@ -135,21 +135,22 @@ reset();
 
 document.addEventListener("keydown", (e) => {
   if (e.code === "Escape") {
-    let modal = document.querySelector(".modal--show");
-    modal.classList.remove("modal--show");
-    hideModalBg();
+    closeCurrentModal();
   }
 });
 
 const modalBackground = document.createElement("div");
 modalBackground.classList.add("modal-background");
 document.body.appendChild(modalBackground);
+modalBackground.addEventListener("click", () => {
+  closeCurrentModal();
+})
 modalBackground.style.display = "none";
 
 const modals = document.querySelectorAll("section.modal");
 for (let i = 0; i < modals.length; i++) {
   modals[i].setAttribute("data-modalref", `${i}`);
-  
+
   const tempContent = modals[i].innerHTML;
   modals[i].innerHTML = "";
   const modalContent = document.createElement("div");
@@ -172,6 +173,12 @@ for(let i = 0; i < modalTriggers.length; i++) {
     modalTriggers[i].setAttribute("data-modalref", modal.getAttribute("data-modalref"));
 }
 
+function closeCurrentModal() {
+  let modal = document.querySelector(".modal--show");
+  modal.classList.remove("modal--show");
+  hideModalBg();
+}
+
 function closeModal() {
   this.parentElement.classList.remove("modal--show");
   hideModalBg();
@@ -182,10 +189,10 @@ function showModal() {
   showModalBg();
 }
 
-function showModalBg() {
-  modalBackground.style.display = "block";
-}
-
 function hideModalBg() {
   modalBackground.style.display = "none";
+}
+
+function showModalBg() {
+  modalBackground.style.display = "block";
 }
