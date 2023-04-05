@@ -271,26 +271,30 @@ section.modal {
   z-index: 90;
   transform: translate(-50%, -50%);
 
+  border: 0.1rem solid var(--clr-modal-border);
+  border-radius: 1rem;
+
+  background-color: var(--clr-modal-bgcolor);
+  box-shadow: 0 1em 4em hsla(0, 0%, 0%, 0.2);
+}
+
+.modal__content {
   width: 40rem;
   height: min-content;
   min-height: 5rem;
   max-height: 60vh;
   padding: 1.6rem;
-  border: 0.1rem solid var(--clr-modal-border);
-  border-radius: 1rem;
 
-  background-color: var(--clr-modal-bgcolor);
   overflow-y: auto;
   overflow-x: hidden;
-  box-shadow: 0 1em 4em hsla(0, 0%, 0%, 0.2);
 }
 
-section .modal__close {
+.modal__close {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 1em;
+  top: 0.4em;
   right: 0.4em;
   z-index: 94;
   width: 1.8em;
@@ -302,7 +306,7 @@ section .modal__close {
   cursor: pointer;
 }
 
-section .modal__close:hover {
+.modal__close:hover {
   fill: var(--clr-model-close-color-hover);
   background-color: var(--clr-model-close-bgcolor-hover);
 }
