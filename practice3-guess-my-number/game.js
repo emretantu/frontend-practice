@@ -27,9 +27,9 @@ let bestScore = 0;
 gameUI.btnGuess.addEventListener("click", guess);
 gameUI.btnReset.addEventListener("click", reset);
 window.addEventListener("keypress", (e) => {
-  if (e.code === "KeyG" || e.code === "Enter") {
+  if ( (e.code === "KeyG" || e.code === "Enter") && !gameUI.btnGuess.classList.contains("game__button--inactive") ) {
     guess();
-  } else if (e.code === "KeyR") {
+  } else if (e.code === "KeyR" && !gameUI.btnReset.classList.contains("game__button--inactive")) {
     reset();
   }
 });
