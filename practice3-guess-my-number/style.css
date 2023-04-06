@@ -264,7 +264,7 @@ section.modal {
   --clr-model-close-color-hover: hsl(0, 0%, 25%);
   --clr-model-close-bgcolor-hover: hsl(0, 0%, 90%);
   
-  display: none;
+  /* display: none; */
 
   position: fixed;
   top: 50vh;
@@ -280,14 +280,33 @@ section.modal {
 }
 
 .modal__content {
-  width: 40rem;
+  width: 90vw;
+  max-width: 40rem;
   height: min-content;
-  min-height: 5rem;
-  max-height: 60vh;
+  max-height: 95vh;
+  min-height: 80px;
   padding: 1.6rem;
-
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+@media (min-width: 321px) {
+  .modal__content {
+    width: 80vw;
+    max-height: 85vh;
+  }
+}
+
+@media (min-width: 426px) {
+  .modal__content {
+    max-height: 75vh;
+  }
+}
+
+@media (min-width: 769px) {
+  .modal__content {
+    max-height: 65vh;
+  }
 }
 
 .modal__close {
@@ -307,7 +326,7 @@ section.modal {
   cursor: pointer;
 }
 
-.modal__close:hover {
+.modal__close:is(:hover, :focus-visible) {
   fill: var(--clr-model-close-color-hover);
   background-color: var(--clr-model-close-bgcolor-hover);
 }
