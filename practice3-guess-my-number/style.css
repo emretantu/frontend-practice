@@ -274,7 +274,8 @@ section.modal {
 
   border: 0.1rem solid var(--clr-modal-border);
   border-radius: 1rem;
-
+  
+  overflow: hidden;
   background-color: var(--clr-modal-bgcolor);
   box-shadow: 0 1em 4em hsla(0, 0%, 0%, 0.2);
 }
@@ -288,6 +289,31 @@ section.modal {
   padding: 1.6rem;
   overflow-y: auto;
   overflow-x: hidden;
+
+  
+}
+
+.modal__content::-webkit-scrollbar {
+  width: 0.3em;
+}
+
+.modal__content::-webkit-scrollbar-track {
+  background-color: hsl(0, 0%, 95%);
+  margin: 0.7em;
+  border-radius: 100rem;
+}
+
+.modal__content::-webkit-scrollbar-track:hover {
+  background-color: hsl(0, 0%, 93%);
+}
+
+.modal__content::-webkit-scrollbar-thumb {
+  background-color: hsl(0, 0%, 75%);
+  border-radius: 100rem;
+}
+
+.modal__content::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(0, 0%, 60%);
 }
 
 @media (min-width: 321px) {
