@@ -264,7 +264,7 @@ section.modal {
   --clr-model-close-color-hover: hsl(0, 0%, 25%);
   --clr-model-close-bgcolor-hover: hsl(0, 0%, 90%);
   
-  /* display: none; */
+  display: none;
 
   position: fixed;
   top: 50vh;
@@ -288,9 +288,7 @@ section.modal {
   min-height: 80px;
   padding: 1.6rem;
   overflow-y: auto;
-  overflow-x: hidden;
-
-  
+  overflow-x: hidden;  
 }
 
 .modal__content::-webkit-scrollbar {
