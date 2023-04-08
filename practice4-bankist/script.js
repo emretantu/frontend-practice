@@ -160,6 +160,20 @@ btnTransfer.addEventListener("click", function(e) {
   }
 });
 
+// Request Loan
+btnLoan.addEventListener("click", function(e) {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+  console.log(amount)
+  if (currentAccount.movements.some(mov => mov > amount * 0.1)) {
+    currentAccount.movements.push(amount);
+    alert("Loan request accepted!");
+    updateUI();
+    inputLoanAmount.value = "";
+    inputLoanAmount.blur();
+  }
+});
+
 const deleteUser = function (account) {
   accounts.splice(accounts.findIndex((acc) => account === acc), 1);
 }
