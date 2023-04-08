@@ -61,6 +61,19 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+
+
+const createUsernames = function (accounts) {
+  accounts.forEach(function(acc) {
+    acc.username = acc.owner
+    .toLowerCase()
+    .split(" ")
+    .map(word => word.charAt(0))
+    .join("");
+  });
+}
+createUsernames(accounts)
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
