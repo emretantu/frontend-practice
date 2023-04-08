@@ -115,6 +115,10 @@ const updateUI = function () {
   displaySummary(currentAccount);
 }
 
+const hideUI = function () {
+  containerApp.style.opacity = "0";
+}
+
 const createUsernames = function (accounts) {
   accounts.forEach(function(acc) {
     acc.username = acc.owner
@@ -126,7 +130,7 @@ const createUsernames = function (accounts) {
 }
 createUsernames(accounts)
 
-// Event handler
+// Login
 let currentAccount;
 btnLogin.addEventListener("click", function (e) {
   e.preventDefault();
@@ -140,6 +144,7 @@ btnLogin.addEventListener("click", function (e) {
   }
 });
 
+// Transfer Money
 btnTransfer.addEventListener("click", function(e) {
   e.preventDefault();
   const amount = Number(inputTransferAmount.value);
@@ -152,6 +157,19 @@ btnTransfer.addEventListener("click", function(e) {
       inputTransferTo.value = inputTransferAmount.value = "";
       updateUI();
     }
+  }
+});
+
+const deleteUser = function (account) {
+  accounts.splice(accounts.findIndex((acc) => account === acc), 1);
+}
+
+// Close Account
+btnClose.addEventListener("click", function(e) {
+  e.preventDefault();
+  if (inputCloseUsername.value === currentAccount.username && Number(inputClosePin.value) === currentAccount.pin) {
+    deleteUser(currentAccount);
+    hideUI();
   }
 });
 
