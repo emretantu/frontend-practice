@@ -136,6 +136,22 @@ btnLogin.addEventListener("click", function (e) {
   }
 });
 
+btnTransfer.addEventListener("click", function(e) {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  if (calcBalance(currentAccount.movements) >= amount) {
+    const receiverAccount = accounts.find(acc => acc.username === inputTransferTo.value);
+    if (receiverAccount != currentAccount && receiverAccount != undefined) {
+      currentAccount.movements.push(-amount);
+      receiverAccount.movements.push(amount);
+      alert("Money transfered.");
+      displayMovements(currentAccount.movements);
+      displayBalance(currentAccount.movements);
+      displaySummary(currentAccount);
+    }
+  }
+});
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
