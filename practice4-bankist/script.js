@@ -109,6 +109,12 @@ const displaySummary = function (account) {
   labelSumInterest.textContent = `${calcInterest(account)} EUR`;
 }
 
+const updateUI = function () {
+  displayMovements(currentAccount.movements);
+  displayBalance(currentAccount.movements);
+  displaySummary(currentAccount);
+}
+
 const createUsernames = function (accounts) {
   accounts.forEach(function(acc) {
     acc.username = acc.owner
@@ -130,9 +136,7 @@ btnLogin.addEventListener("click", function (e) {
     containerApp.style.opacity = "1";
     inputLoginUsername.value = inputLoginPin.value = "";
     inputLoginPin.blur();
-    displayMovements(currentAccount.movements);
-    displayBalance(currentAccount.movements);
-    displaySummary(currentAccount);
+    updateUI();
   }
 });
 
@@ -145,9 +149,7 @@ btnTransfer.addEventListener("click", function(e) {
       currentAccount.movements.push(-amount);
       receiverAccount.movements.push(amount);
       alert("Money transfered.");
-      displayMovements(currentAccount.movements);
-      displayBalance(currentAccount.movements);
-      displaySummary(currentAccount);
+      updateUI();
     }
   }
 });
