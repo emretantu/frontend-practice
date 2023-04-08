@@ -143,12 +143,13 @@ btnLogin.addEventListener("click", function (e) {
 btnTransfer.addEventListener("click", function(e) {
   e.preventDefault();
   const amount = Number(inputTransferAmount.value);
-  if (calcBalance(currentAccount.movements) >= amount) {
+  if (calcBalance(currentAccount.movements) >= amount && amount > 0) {
     const receiverAccount = accounts.find(acc => acc.username === inputTransferTo.value);
-    if (receiverAccount != currentAccount && receiverAccount != undefined) {
+    if (receiverAccount !== currentAccount && receiverAccount !== undefined) {
       currentAccount.movements.push(-amount);
       receiverAccount.movements.push(amount);
-      alert("Money transfered.");
+      alert("Money transferred.");
+      inputTransferTo.value = inputTransferAmount.value = "";
       updateUI();
     }
   }
