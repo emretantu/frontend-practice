@@ -179,12 +179,37 @@ const deleteUser = function (account) {
 }
 
 // Close Account
-btnClose.addEventListener("click", function(e) {
+btnClose.addEventListener("click", function (e) {
   e.preventDefault();
   if (inputCloseUsername.value === currentAccount.username && Number(inputClosePin.value) === currentAccount.pin) {
     deleteUser(currentAccount);
     hideUI();
   }
+});
+
+// Sorting Movement Rows
+btnSort.addEventListener("click", function () {
+  const orderedMovements = currentAccount.movements.map(mov => mov).sort((a,b) => a-b);
+  let isSorted = Array.from(document.querySelectorAll(".movements__value"))
+    .map(val => Number(val.innerText.split(" ")[0]))
+    .every((val, i, arr) => {
+      if (val >= arr[i+1]) {
+        console.log(val, arr[i+1], "hey1", val >= arr[i+1]);
+        return true;
+      } else if (i + 1 >= arr.length) {
+        console.log(val, arr[i+1], "hey2", i + 1 > arr.length);
+        return true;
+      }
+      console.log(val, arr[i+1], "hey3");
+      return false;
+    });
+  
+  if (isSorted) {
+    displayMovements(currentAccount.movements);
+  } else {
+    displayMovements(orderedMovements);
+  }
+  
 });
 
 /////////////////////////////////////////////////
