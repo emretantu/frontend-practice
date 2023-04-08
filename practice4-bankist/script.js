@@ -83,23 +83,30 @@ const displayBalance = function (movements) {
   labelBalance.textContent = `${calcBalance(movements)} EUR`;
 }
 
-const displaySummary = function (account) {
-  const income = account.movements
+const calcIncome = function (movements) {
+  return movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = `${income} EUR`;
+}
 
-  const out = account.movements
+const calcOut = function (movements) {
+  return -movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = `${-out} EUR`;
+}
 
-  const interest = account.movements
+const calcInterest = function (account) {
+  return account.movements
     .filter(mov => mov > 0)
     .map(mov => mov * account.interestRate / 100)
     .filter(int => int > 1)
     .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = `${interest} EUR`;
+}
+
+const displaySummary = function (account) {
+  labelSumIn.textContent = `${calcIncome(account.movements)} EUR`;
+  labelSumOut.textContent = `${calcOut(account.movements)} EUR`;
+  labelSumInterest.textContent = `${calcInterest(account)} EUR`;
 }
 
 const createUsernames = function (accounts) {
