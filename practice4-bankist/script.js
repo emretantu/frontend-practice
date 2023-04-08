@@ -75,12 +75,15 @@ const displayMovements = function (movements) {
   });
 }
 
-const displayBalance = function(movements) {
-  const balance = movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance} EUR`;
+const calcBalance = function (movements) {
+  return movements.reduce((acc, mov) => acc + mov, 0);
 }
 
-const displaySummary = function(account) {
+const displayBalance = function (movements) {
+  labelBalance.textContent = `${calcBalance(movements)} EUR`;
+}
+
+const displaySummary = function (account) {
   const income = account.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
