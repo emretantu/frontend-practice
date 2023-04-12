@@ -1,8 +1,10 @@
+import classes from "./Post.module.css";
+
 function Post(props) {
   return (
-    <li>
-      <p>{probs.author}</p>
-      <p>{probs.body}</p>
+    <li className={classes.post}>
+      <p className={classes.author}>{probs.author}</p>
+      <p className={classes.text}>{probs.body}</p>
     </li>
   )
 }
